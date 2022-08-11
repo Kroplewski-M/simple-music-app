@@ -1,6 +1,6 @@
 <template>
-  <div class="w-[100%] h-[100px] text-center bg-purple-400">
-    <p class="text-[50px] font-bold font-['lato']">My Music</p>
+  <div class="w-[100%] h-[100px] text-center bg-purple-400 rounded-b-md">
+    <p class="text-[50px] font-bold font-['lato'] pt-[5px]">Tunes</p>
   </div>
 </template>
 
