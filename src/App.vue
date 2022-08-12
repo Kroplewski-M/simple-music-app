@@ -74,6 +74,12 @@ export default {
       }
     },
     songIndex(){
+       if(this.songIndex >= (this.songs.length)){
+        this.songIndex = 0;
+      }
+      if(this.songIndex < 0){
+        this.songIndex = (this.songs.length -1);
+      }
       this.player.src = this.songs[this.songIndex].src;
       this.player.load();
       this.player.play();
