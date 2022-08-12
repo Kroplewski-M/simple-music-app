@@ -66,6 +66,11 @@ export default {
         this.timeStamp = this.player.currentTime;
         this.player.pause();
       }
+    },
+    songIndex(){
+      this.player.src = this.songs[this.songIndex].src;
+      this.player.load();
+      this.player.play();
     }
   }
 };
