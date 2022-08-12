@@ -1,6 +1,6 @@
 <template>
   <AppNav></AppNav>
-  <AppMain :songs="songs"></AppMain>
+  <AppMain :songs="songs" @clicked="playSound"></AppMain>
   <AppPlayer></AppPlayer>
 </template>
 
@@ -41,5 +41,11 @@ export default {
       player: new Audio(),
     };
   },
+  methods:{
+    playSound(index){
+      this.player.src = this.songs[index].src;
+      this.player.play();
+    }
+  }
 };
 </script>

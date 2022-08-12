@@ -26,7 +26,7 @@ export default {
   props: ["songs"],
   methods: {
     playSound(index) {
-      console.log(index);
+      this.$emit('clicked',index);
     },
   },
 };
