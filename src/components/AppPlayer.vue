@@ -5,6 +5,7 @@
         src="@/assets/photos/prev.png"
         alt="play previous song"
         class="w-[40px] h-[40px] hover:cursor-pointer"
+        @click="prev"
       />
       <img
         :src="require(`@/assets/photos/${playing}.png`)"
@@ -16,6 +17,7 @@
         src="@/assets/photos/next.png"
         alt="play next song"
         class="w-[40px] h-[40px] hover:cursor-pointer"
+        @click="next"
       />
     </div>
   </div>
@@ -45,6 +47,12 @@ export default {
       flip = !this.isPlaying
       this.$emit('clicked',flip);
     },
+    next(){
+      this.$emit('next');
+    },
+    prev(){
+      this.$emit('prev');
+    }
   },
 }
 </script>

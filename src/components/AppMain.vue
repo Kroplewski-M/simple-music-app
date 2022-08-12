@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-wrap space-x-10 mt-10 place-content-center">
+  <section class="flex flex-wrap space-x-10 pt-10 place-content-center bg-gray-800 pb-[50vh]">
     <div v-for="(song, index) in this.songs" :key="song.name">
       <div class="w-[200px] h-[300px] bg-purple-500 rounded-md text-center">
         <img
