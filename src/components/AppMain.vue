@@ -13,7 +13,7 @@
           src="@/assets/photos/play.png"
           alt="play song"
           class="w-[17px] h-[17px] hover:cursor-pointer mx-auto mt-5"
-          @click.prevent="playSound(index)"
+          @click.prevent="playSound(index,restart)"
         />
       </div>
     </div>

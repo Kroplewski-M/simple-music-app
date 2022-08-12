@@ -7,9 +7,10 @@
         class="w-[40px] h-[40px] hover:cursor-pointer"
       />
       <img
-        src="@/assets/photos/play.png"
+        :src="require(`@/assets/photos/${playing}.png`)"
         alt="play song"
         class="w-[37px] h-[37px] hover:cursor-pointer"
+        @click.prevent="toggleIsPlaying"
       />
       <img
         src="@/assets/photos/next.png"
@@ -23,5 +24,27 @@
 <script>
 export default {
   name: "AppPlayer",
-};
+  props:["isPlaying"],
+  data(){
+    return{
+      playing:"play",
+    }
+  },
+  watch:{
+    isPlaying(){
+      if(this.isPlaying == true){
+        this.playing = 'pause';
+      }
+      else{
+        this.playing = 'play';
+      }
+    }
+  },
+  methods:{
+     toggleIsPlaying(flip){
+      flip = !this.isPlaying
+      this.$emit('clicked',flip);
+    },
+  },
+}
 </script>

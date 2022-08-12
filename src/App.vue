@@ -1,7 +1,7 @@
 <template>
   <AppNav></AppNav>
   <AppMain :songs="songs" @clicked="playSound"></AppMain>
-  <AppPlayer></AppPlayer>
+  <AppPlayer :isPlaying="isPlaying" :player="player" @clicked="toggleIsPlaying"></AppPlayer>
 </template>
 
 <script>
@@ -39,12 +39,33 @@ export default {
         },
       ],
       player: new Audio(),
+      isPlaying: false,
+      timeStamp: 0,
+      songIndex: 0,
     };
   },
   methods:{
     playSound(index){
-      this.player.src = this.songs[index].src;
-      this.player.play();
+      this.songIndex = index;
+      this.timeStamp = 0;
+      this.isPlaying = true;
+    },
+    toggleIsPlaying(isPlaying){
+      this.isPlaying = isPlaying;
+    }
+  },
+  watch:{
+    isPlaying(){
+      if(this.isPlaying == true)
+      {
+        this.player.src = this.songs[this.songIndex].src;
+        this.player.currentTime = this.timeStamp;
+        this.player.play();
+      }
+      else{
+        this.timeStamp = this.player.currentTime;
+        this.player.pause();
+      }
     }
   }
 };
