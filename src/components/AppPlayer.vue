@@ -20,6 +20,9 @@
         @click="next"
       />
     </div>
+       <div class="absolute ml-5 mt-[25px] w-[130px]">
+         <input type="range" name="volume" id="volume" min="0" max="100" class="w-[100%] hover:cursor-pointer " v-model="volume">
+      </div>
   </div>
 </template>
 
@@ -30,6 +33,7 @@ export default {
   data(){
     return{
       playing:"play",
+      volume: 100,
     }
   },
   watch:{
@@ -40,6 +44,10 @@ export default {
       else{
         this.playing = 'play';
       }
+    },
+    volume(volume){
+      volume = this.volume / 100;
+      this.$emit('volume',volume);
     }
   },
   methods:{
@@ -52,7 +60,12 @@ export default {
     },
     prev(){
       this.$emit('prev');
-    }
+    },
   },
 }
 </script>
+
+<style>
+
+
+</style>

@@ -1,7 +1,7 @@
 <template>
   <AppNav></AppNav>
   <AppMain :songs="songs" @clicked="playSound"></AppMain>
-  <AppPlayer :isPlaying="isPlaying" :player="player" @clicked="toggleIsPlaying" @next="next" @prev="prev"></AppPlayer>
+  <AppPlayer :isPlaying="isPlaying" :player="player" @clicked="toggleIsPlaying" @next="next" @prev="prev" @volume="volume"></AppPlayer>
 </template>
 
 <script>
@@ -49,6 +49,7 @@ export default {
       this.songIndex = index;
       this.timeStamp = 0;
       this.isPlaying = true;
+      
     },
     toggleIsPlaying(isPlaying){
       this.isPlaying = isPlaying;
@@ -58,6 +59,10 @@ export default {
     },
     prev(){
       this.songIndex--;
+    },
+    volume(volume){
+      this.player.volume = volume;
+      console.log(volume);
     }
   },
   watch:{

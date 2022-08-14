@@ -1,7 +1,7 @@
 <template>
-  <section class="flex flex-wrap space-x-10 pt-10 place-content-center bg-gray-800 pb-[50vh]">
+  <section class="flex flex-wrap pt-10 place-content-center">
     <div v-for="(song, index) in this.songs" :key="song.name">
-      <div class="w-[200px] h-[300px] bg-purple-500 rounded-md text-center">
+      <div class="w-[200px] h-[300px] bg-purple-500 rounded-md text-center mt-10 ml-[30px]">
         <img
           src="../assets/photos/music.png"
           alt=""
