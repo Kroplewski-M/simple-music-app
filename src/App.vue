@@ -2,9 +2,11 @@
   <AppNav></AppNav>
   <AppMain :songs="songs" @clicked="playSound"></AppMain>
   <AppPlayer :isPlaying="isPlaying" :player="player" @clicked="toggleIsPlaying" @next="next" @prev="prev" @volume="volume"></AppPlayer>
+
 </template>
 
 <script>
+
 import AppNav from "./components/AppNav.vue";
 import AppMain from "./components/AppMain.vue";
 import AppPlayer from "./components/AppPlayer.vue";
