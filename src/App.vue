@@ -1,7 +1,7 @@
 <template>
   <AppNav></AppNav>
   <AppMain :songs="songs" @clicked="playSound"></AppMain>
-  <AppPlayer :isPlaying="isPlaying" :player="player" @clicked="toggleIsPlaying" @next="next" @prev="prev" @volume="volume"></AppPlayer>
+  <AppPlayer :isPlaying="isPlaying" :player="player"  :songIndex="songIndex" :songs="songs" @clicked="toggleIsPlaying" @next="next" @prev="prev" @volume="volume"></AppPlayer>
 
 </template>
 
