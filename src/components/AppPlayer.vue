@@ -1,8 +1,8 @@
 <template>
   <div class="absolute bottom-0 fixed w-[100%] h-[70px] bg-purple-400 flex">
     <div class="flex flex-col place-content-center w-[100%] pb-[20px]">
-      <div class="hidden">
-           <input type="range" name="timeStamp" ref="time" v-model.lazy="this.player.currentTime" step="0.5" class="w-[100%] hover:cursor-pointer">
+      <div class="">
+           <input type="range" name="timeStamp" ref="time" v-model="this.currentTime" @input="updateTime" step="0.5" class="w-[100%] hover:cursor-pointer">
         </div>
 
     <div class="mx-auto flex space-x-10  mt-[10px]">
@@ -47,6 +47,8 @@ export default {
     return{
       playing:"play",
       volume: 100,
+      currentTime: 0,
+      duration: 0,
     }
   },
   watch:{
@@ -55,7 +57,7 @@ export default {
         this.playing = 'pause';
         setTimeout(() =>{
           this.$refs.time.max = this.player.duration;
-        },1000);
+        },500);
       }
       else{
         this.playing = 'play';
@@ -78,6 +80,15 @@ export default {
     prev(){
       this.$emit('prev');
     },
+    updateTime(){
+      this.player.currentTime = this.currentTime;
+    },
+    timeupdate(){
+      this.currentTime = this.player.currentTime;
+    },  
+  },
+  mounted(){
+    this.player.addEventListener('timeupdate',this.timeupdate,false);
   },
  
 }
