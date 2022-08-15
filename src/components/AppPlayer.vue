@@ -1,7 +1,7 @@
 <template>
   <div class="absolute bottom-0 fixed w-[100%] h-[70px] bg-purple-400 flex">
     <div class="flex flex-col place-content-center w-[100%] pb-[20px]">
-      <div class="">
+      <div class="hidden">
            <input type="range" name="timeStamp" ref="time" v-model.lazy="this.player.currentTime" step="0.5" class="w-[100%] hover:cursor-pointer">
         </div>
 
