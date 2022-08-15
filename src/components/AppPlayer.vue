@@ -26,10 +26,10 @@
       />
     </div>
     </div>
-       <div class="absolute ml-5 mt-[25px] w-[130px]">
+       <div class="absolute ml-5 mt-[30px] w-[130px]">
          <input type="range" name="volume" id="volume" min="0" max="100" class="w-[100%] hover:cursor-pointer " v-model="volume">
       </div>
-      <div class="absolute right-20 mt-[20px]">
+      <div class="absolute md:right-20 right-3 text-[13px] md:text-[16px] mt-[30px] md:mt-[20px]">
           <p>Now playing: <span class="font-bold"> {{this.songs[this.songIndex].name}} </span></p>
       </div>
        </div>
