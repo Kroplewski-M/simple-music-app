@@ -62,8 +62,7 @@ export default {
     },
     volume(volume){
       this.player.volume = volume;
-      console.log(volume);
-    }
+    },
   },
   watch:{
     isPlaying(){
@@ -78,7 +77,7 @@ export default {
         this.player.pause();
       }
     },
-    songIndex(){
+     songIndex(){
        if(this.songIndex >= (this.songs.length)){
         this.songIndex = 0;
       }
@@ -88,7 +87,7 @@ export default {
       this.player.src = this.songs[this.songIndex].src;
       this.player.load();
       this.player.play();
-    }
+    },
   }
 };
 </script>
