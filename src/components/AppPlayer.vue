@@ -67,6 +67,7 @@ export default {
       volume = this.volume / 100;
       this.$emit('volume',volume);
     },
+
     
   },
   methods:{
@@ -85,6 +86,9 @@ export default {
     },
     timeupdate(){
       this.currentTime = this.player.currentTime;
+      if(this.currentTime >= this.player.duration){
+        this.next();
+      }
     },  
   },
   mounted(){
@@ -96,6 +100,5 @@ export default {
 </script>
 
 <style>
-
 
 </style>
