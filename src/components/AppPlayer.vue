@@ -55,6 +55,9 @@ export default {
     isPlaying(){
       if(this.isPlaying == true){
         this.playing = 'pause';
+             setTimeout(() =>{
+          this.$refs.time.max = this.player.duration;
+        },1000);
       }
       else{
         this.playing = 'play';
