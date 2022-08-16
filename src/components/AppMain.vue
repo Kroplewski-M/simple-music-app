@@ -17,6 +17,9 @@
         />
       </div>
     </div>
+    <div class="w-[200px] h-[300px] bg-purple-500 rounded-md text-center mt-10 ml-[30px] hover:bg-purple-600 hover:cursor-pointer">
+       <img src="@/assets/photos/add.png" alt="" class="w-[90px] h-[90px] ml-[55px] mt-[80px]">
+      </div>
   </section>
 </template>
 
