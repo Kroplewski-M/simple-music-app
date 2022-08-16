@@ -1,6 +1,7 @@
 <template>
   <AppNav></AppNav>
-  <AppMain :songs="songs" @clicked="playSound"></AppMain>
+  <AppForm @toggleForm="toggleForm" class="fade-in" v-if="showForm"></AppForm>
+  <AppMain :songs="songs" @clicked="playSound" @toggleForm="toggleForm"></AppMain>
   <AppPlayer :isPlaying="isPlaying" :player="player"  :songIndex="songIndex" :songs="songs" @clicked="toggleIsPlaying" @next="next" @prev="prev" @volume="volume"></AppPlayer>
 </template>
 
@@ -9,6 +10,7 @@
 import AppNav from "./components/AppNav.vue";
 import AppMain from "./components/AppMain.vue";
 import AppPlayer from "./components/AppPlayer.vue";
+import AppForm from "./components/AppForm.vue";
 
 export default {
   name: "App",
@@ -16,7 +18,8 @@ export default {
     AppNav,
     AppPlayer,
     AppMain,
-  },
+    AppForm
+},
   data() {
     return {
       songs: [
@@ -43,6 +46,8 @@ export default {
       isPlaying: false,
       timeStamp: 0,
       songIndex: 0,
+      showForm: false,
+      fade:'fade-out',
     };
   },
   methods:{
@@ -64,6 +69,14 @@ export default {
     volume(volume){
       this.player.volume = volume;
     },
+    toggleForm(){
+      this.showForm = !this.showForm;
+      if(this.showForm){
+        this.fade='fade-in';
+      }else{
+        this.fade='fade-out';
+      }
+    }
   },
   watch:{
     isPlaying(){
@@ -92,3 +105,21 @@ export default {
   }
 };
 </script>
+
+<style>
+.fade-in {
+	animation: fadeIn 0.5s;
+  	opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+  	opacity: 0;
+  }
+  to {
+ 	opacity: 1;
+  }
+}
+
+</style>
+
