@@ -55,9 +55,6 @@ export default {
     isPlaying(){
       if(this.isPlaying == true){
         this.playing = 'pause';
-        setTimeout(() =>{
-          this.$refs.time.max = this.player.duration;
-        },500);
       }
       else{
         this.playing = 'play';
@@ -67,6 +64,11 @@ export default {
       volume = this.volume / 100;
       this.$emit('volume',volume);
     },
+    songIndex(){
+      setTimeout(() =>{
+          this.$refs.time.max = this.player.duration;
+        },1000);
+    }
 
     
   },
