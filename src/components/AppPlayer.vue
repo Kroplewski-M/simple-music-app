@@ -1,11 +1,11 @@
 <template>
-  <div class="absolute bottom-0 fixed w-[100%] h-[70px] bg-purple-400 flex">
+  <div class="bottom-0 fixed w-[100%] h-[70px] bg-purple-400 flex">
     <div class="flex flex-col place-content-center w-[100%] pb-[20px]">
       <div class="">
            <input type="range" name="timeStamp" ref="time" v-model="this.currentTime" @input="updateTime" step="0.5" class="w-[100%] hover:cursor-pointer">
         </div>
 
-    <div class="mx-auto flex space-x-10  mt-[10px]">
+    <div class="md:mx-auto ml-5 md:ml-[0px] flex space-x-10  mt-[10px]">
       <img
         src="@/assets/photos/prev.png"
         alt="play previous song"
@@ -26,7 +26,7 @@
       />
     </div>
     </div>
-       <div class="absolute ml-5 mt-[30px] w-[130px]">
+       <div class="absolute ml-5 mt-[30px] w-[130px] hidden md:inline">
          <input type="range" name="volume" id="volume" min="0" max="100" class="w-[100%] hover:cursor-pointer " v-model="volume">
       </div>
       <div class="absolute md:right-20 right-3 text-[13px] md:text-[16px] mt-[30px] md:mt-[20px]">
