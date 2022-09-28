@@ -5,8 +5,6 @@
         <input type="range" name="timeStamp" ref="time" v-model="this.currentTime" @input="updateTime" step="0.5"
           class="w-[100%] hover:cursor-pointer">
       </div>
-
-<<<<<<< HEAD
       <div class="mx-auto flex space-x-10  mt-[10px]">
         <img src="@/assets/photos/prev.png" alt="play previous song" class="w-[30px] h-[30px] hover:cursor-pointer"
           @click="prev" />
@@ -14,31 +12,6 @@
           class="w-[27px] h-[27px] hover:cursor-pointer" @click.prevent="toggleIsPlaying" />
         <img src="@/assets/photos/next.png" alt="play next song" class="w-[30px] h-[30px] hover:cursor-pointer"
           @click="next" />
-=======
-    <div class="md:mx-auto ml-5 md:ml-[0px] flex space-x-10  mt-[10px]">
-      <img
-        src="@/assets/photos/prev.png"
-        alt="play previous song"
-        class="w-[30px] h-[30px] hover:cursor-pointer"
-        @click="prev"
-      />
-      <img
-        :src="require(`@/assets/photos/${playing}.png`)"
-        alt="play song"
-        class="w-[27px] h-[27px] hover:cursor-pointer"
-        @click.prevent="toggleIsPlaying"
-      />
-      <img
-        src="@/assets/photos/next.png"
-        alt="play next song"
-        class="w-[30px] h-[30px] hover:cursor-pointer"
-        @click="next"
-      />
-    </div>
-    </div>
-       <div class="absolute ml-5 mt-[30px] w-[130px] hidden md:inline">
-         <input type="range" name="volume" id="volume" min="0" max="100" class="w-[100%] hover:cursor-pointer " v-model="volume">
->>>>>>> 2a0f2632698892ac549e8b3143c983fdaa849a5a
       </div>
     </div>
     <div class="absolute ml-5 mt-[30px] w-[130px]">
