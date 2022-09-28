@@ -11,7 +11,7 @@
         <label for="artistName" class="font-bold">Artist Name:</label>
         <input type="text" name="artistName" class="block mx-auto bg-purple-500 rounded-md pl-[5px]" v-model="songArtist" required>
 
-        <input type="file" id="file" name="songFile" accept=".mp3" class="ml-[50px] pt-[30px] pb-5" v-on:change="songFile" required>
+        <input type="file" ref="file" name="songFile" accept="audio/mpeg/*" class="ml-[50px] pt-[30px] pb-5" @change="selectFile" required>
         <button class="w-[100px] h-[30px] bg-white font-bold text-black rounded-md mx-auto mt-10" >Add Song</button>
     </form>
   </div>
@@ -26,7 +26,7 @@ export default {
             songName: '',
             songArtist: '',
             songFile: '',
-            
+            reader: new FileReader(),
         }
     },
     methods:{
@@ -36,7 +36,12 @@ export default {
         addSong(){
             console.log(this.songName);
             console.log(this.songArtist);
-            console.log();
+            console.log(this.songFile);
+            console.log(this.reader);
+        },
+        selectFile(){
+            this.songFile = this.$refs.file.files[0];
+            this.reader.readAsBinaryString(this.songFile);
         }
     },
 }
